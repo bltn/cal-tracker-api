@@ -9,6 +9,11 @@ class DaysController < ApplicationController
     render :create
   end
 
+  def destroy
+    @day = Day.find(params[:id])
+    head :ok if @day.destroy
+  end
+
   private
 
   def day_params
