@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_22_183613) do
+ActiveRecord::Schema.define(version: 2020_04_23_162008) do
 
   create_table "days", force: :cascade do |t|
     t.string "name"
@@ -25,6 +25,13 @@ ActiveRecord::Schema.define(version: 2020_03_22_183613) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "day_id", null: false
     t.index ["day_id"], name: "index_meal_entries_on_day_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "password_digest"
   end
 
   add_foreign_key "meal_entries", "days"
